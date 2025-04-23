@@ -1,16 +1,45 @@
-# interview_ecommerce_app
 
-A new Flutter project.
+# Flutter Ecommerce App
 
-## Getting Started
+A beautiful, responsive Flutter app to browse and search products using the DummyJSON API. Built with GetX for state management and routing, the app demonstrates clean architecture, modern UI practices, and reusable components.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## ✨ Features
+### 🧾 Product List Screen
+- Fetches up to 100 products using:  
+  `https://dummyjson.com/products?limit=100`
+- Displays product **image**, **title**, **price**, **rating**, and **category**
+- Beautiful card/tile layout with clean spacing and responsiveness
+### 📂 Category Filtering
+- Dynamically fetches all categories from:  
+  `https://dummyjson.com/products/categories`
+- Displays Category Button
+- Filters products using:  
+  `https://dummyjson.com/products/category/{category_name}`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 📄 Product Details Page
+- Shows:
+  - Product title
+  - Description
+  - Price
+  - Rating
+  - Image carousel (if multiple images)
+
+## 🛠️ Tech Stack
+- **Flutter**
+- **GetX** (for routing, state, controller logic)
+- Clean architecture and folder structure
+- Modern UI with responsive design
+## 📸 Screenshots
+
+### 🏠 Home Screen
+![Home Screen](assets/Screenshots/home_screen.png)
+
+### 📄 Product Detail Page
+![Product Detail](assets/Screenshots/product_detail.png)
+### 📄 Search Page
+![Product Detail](assets/Screenshots/Search_product.png)
+### 📄 Category Product Page
+![Product Detail](assets/Screenshots/category_product.png)
+
