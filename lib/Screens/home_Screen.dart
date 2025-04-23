@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:interview_ecommerce_app/Screens/product_details_page.dart';
 import 'package:interview_ecommerce_app/Screens/product_search_page.dart';
+import '../AppRoutes/app_routes.dart';
 import '../Widgets/products_card.dart';
 import '../controller/product_&_category_controler.dart';
 import 'category_products.dart';
@@ -42,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: TextField(
+                    readOnly: true,
                     decoration: InputDecoration(
                       hintText: 'Search by product name...',
                       prefixIcon: const Icon(Icons.search),
@@ -54,7 +56,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     onTap: (){
-                      Get.to(()=>SearchPage());
+                     Get.toNamed(AppRoutes.searchProduct);
+                      //Get.to(()=>SearchPage());
                       controller.searchResults.value.clear();
                     },
                   ),
@@ -115,11 +118,14 @@ class _HomeScreenState extends State<HomeScreen> {
             final image = product.images![0];
             return GestureDetector(
               onTap: (){
-                Get.to(()=>ProductDetailsPage(product: product),
+                Get.toNamed(AppRoutes.productDetails,
+                  arguments: product,
+                );
+                /*Get.to(()=>ProductDetailsPage(product: product),
                   transition: Transition.fadeIn,
                   duration: Duration(milliseconds: 700),
-                );
-                print('ID..............:${product.id}');
+                );*/
+
               },
               child: GridProductCard(
                 imageUrl: image,
@@ -149,7 +155,8 @@ class _HomeScreenState extends State<HomeScreen> {
             return GestureDetector(
               onTap: (){
                controller.loadProductsByCategory(category['slug']);
-               Get.to(()=>CategoryProducts());
+               //Get.to(()=>CategoryProducts());
+               Get.toNamed(AppRoutes.categoryProduct);
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),

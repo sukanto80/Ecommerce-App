@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:interview_ecommerce_app/Screens/product_details_page.dart';
 
+import '../AppRoutes/app_routes.dart';
 import '../Widgets/products_card.dart';
 import '../controller/product_&_category_controler.dart';
 
@@ -66,10 +67,8 @@ class _CategoryProductsState extends State<CategoryProducts> {
             final image = product.images![0];
             return GestureDetector(
               onTap: (){
-                Get.to(()=>ProductDetailsPage(product: product),
-                  transition: Transition.fadeIn,
-                  duration: Duration(milliseconds: 700),
-                );
+                Get.toNamed(AppRoutes.productDetails,
+                    arguments: product);
               },
 
               child: GridProductCard(

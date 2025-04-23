@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -66,25 +67,22 @@ class _GridProductCardState extends State<GridProductCard> {
                 tag:'product-image-${widget.id}-${widget.title}',
                 child: ClipRRect(
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-                  child: Image.network(
-                    widget.imageUrl!,
+                  child: CachedNetworkImage(
+                    imageUrl: widget.imageUrl!,
                     height: imageHeight,
                     width: double.infinity,
                     fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Shimmer.fromColors(
-                        baseColor: Colors.grey.shade300,
-                        highlightColor: Colors.grey.shade100,
-                        child: Container(
-                          //width: double.infinity,
-                          height: 120,
-                          color: Colors.white,
-                        ),
-                      );
-                    },
-
-                  ),
+                    placeholder: (context, url) => Shimmer.fromColors(
+                      baseColor: Colors.grey.shade300,
+                      highlightColor: Colors.grey.shade100,
+                      child: Container(
+                        height: imageHeight,
+                        width: double.infinity,
+                        color: Colors.white,
+                      ),
+                    ),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                  )
                 ),
               ),
 

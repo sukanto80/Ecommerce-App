@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../AppRoutes/app_routes.dart';
 import '../Widgets/products_card.dart';
 import '../controller/product_&_category_controler.dart';
 
@@ -63,7 +64,8 @@ class SearchPage extends StatelessWidget {
                   final product = searchController.searchResults[index];
                   return GestureDetector(
                     onTap: () {
-
+                      Get.toNamed(AppRoutes.productDetails,
+                      arguments: product);
                     },
                     child: GridProductCard(
                       imageUrl: product.thumbnail,

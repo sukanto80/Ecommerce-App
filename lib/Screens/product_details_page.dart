@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -78,11 +79,11 @@ class ProductDetailsPage extends StatelessWidget {
 
           final imageWidget = ClipRRect(
             borderRadius: BorderRadius.circular(16),
-            child: Image.network(
-              imageUrl,
+            child: CachedNetworkImage(
+              imageUrl:  imageUrl,
               fit: BoxFit.cover,
               width: double.infinity,
-              errorBuilder: (context, error, _) => const Icon(Icons.broken_image, size: 100),
+              errorWidget: (context, url, error) => Icon(Icons.broken_image, size: 100),
             ),
           );
 
@@ -101,12 +102,12 @@ class ProductDetailsPage extends StatelessWidget {
         tag: 'product-image-${product.id}-${product.title}',
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
-          child: Image.network(
-            images[0],
+          child: CachedNetworkImage(
+            imageUrl: images[0],
             fit: BoxFit.cover,
             width: double.infinity,
             height: 300,
-            errorBuilder: (context, error, _) => const Icon(Icons.broken_image, size: 100),
+            errorWidget: (context, url, error) => Icon(Icons.broken_image, size: 100),
           ),
         ),
       );

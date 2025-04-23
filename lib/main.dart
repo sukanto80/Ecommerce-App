@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
+import 'AppRoutes/app_routes.dart';
 import 'Screens/home_Screen.dart';
 
 void main() {
@@ -14,8 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialRoute: AppRoutes.home,
+      onGenerateRoute: AppRoutes.generateRoute,
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      //home: const HomeScreen(),
     );
   }
 }
