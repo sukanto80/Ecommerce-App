@@ -2,7 +2,8 @@
 # Flutter Ecommerce App
 
 A beautiful, responsive Flutter app to browse and search products using the DummyJSON API. Built with GetX for state management and routing, the app demonstrates clean architecture, modern UI practices, and reusable components.
-
+## Download APK
+(https://drive.google.com/file/d/1ezxOottCN9VS2c5gcC9Qz19BFdbSACxR/view?usp=sharing)
 
 
 ## ✨ Features
